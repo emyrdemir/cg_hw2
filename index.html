@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		
+		body, html {
+		background-color: #1d1c25;
+		margin: 0;
+		padding: 0;
+	}
+	
+	.range {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+
+	}
+	
+	input[type=range]::-webkit-slider-runnable-track {
+		-webkit-appearance: none;
+		background: rgba(59,173,227,1);
+		background: -moz-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+		background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(59,173,227,1)), color-stop(25%, rgba(87,111,230,1)), color-stop(51%, rgba(152,68,183,1)), color-stop(100%, rgba(255,53,127,1)));
+		background: -webkit-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+		background: -o-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+		background: -ms-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+		background: linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bade3 ', endColorstr='#ff357f ', GradientType=1 );
+		height: 3px;
+
+	}
+	
+	input[type=range]:focus {
+		outline: none;
+		opacity: 1;
+	}
+	
+	input[type=range]::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		border: 2px solid;
+		border-radius: 50%;
+		height: 25px;
+		width: 25px;
+		max-width: 80px;
+		position: relative;
+		bottom: 11px;
+		background-color: #1d1c25;
+		cursor: -webkit-grab;
+	
+		-webkit-transition: border 1000ms ease;
+		transition: border 1000ms ease;
+	}
+	
+	
+	.range.red::-webkit-slider-thumb {
+		border-color: rgb(255, 0, 0);
+	}
+	.range.red::-webkit-slider-runnable-track {
+		-webkit-appearance: none;
+		background: rgb(133, 133, 133);
+		background: -moz-linear-gradient(45deg, rgb(0, 0, 0) 0%, rgba(64, 0, 0, 1) 25%, rgba(128, 0, 0, 1) 51%, rgba(255, 0, 0, 1) 100%);
+		background: -webkit-gradient(left bottom, right top, color-stop(0%, rgb(0, 0, 0)), color-stop(25%, rgb(64, 0, 0)), color-stop(51%, rgba(128,0,0,1)), color-stop(100%, rgba(255,0,0,1)));
+		background: -webkit-linear-gradient(45deg, rgb(0, 0, 0) 0%, rgba(64, 0, 0, 1) 25%, rgba(128, 0, 0, 1) 51%, rgba(255, 0, 0, 1) 100%);
+		background: -o-linear-gradient(45deg, rgba(0, 0, 0, 1) 0%, rgba(64, 0, 0, 1) 25%, rgba(128, 0, 0, 1) 51%, rgba(255, 0, 0, 1) 100%);
+		background: -ms-linear-gradient(45deg, rgb(0, 0, 0) 0%, rgba(64, 0, 0, 1) 25%, rgba(128, 0, 0, 1) 51%, rgba(255, 0, 0, 1) 100%);
+		background: linear-gradient(45deg, rgb(0, 0, 0) 0%, rgb(64, 0, 0) 25%, rgb(128, 0, 0) 51%, rgb(255, 0, 0) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000 ', endColorstr='#ff0000 ', GradientType=1 );
+		height: 3px;
+	}
+	.range.green::-webkit-slider-thumb {
+		border-color: rgb(0, 255, 0);
+	}
+	.range.green::-webkit-slider-runnable-track {
+		-webkit-appearance: none;
+		background: rgb(133, 133, 133);
+		background: -moz-linear-gradient(45deg, rgb(0, 0, 0) 0%, rgba(0, 64, 0, 1) 25%, rgba(0, 128, 0, 1) 51%, rgba(0, 255, 0, 1) 100%);
+		background: -webkit-gradient(left bottom, right top, color-stop(0%, rgb(0, 0, 0)), color-stop(25%, rgb(0, 64, 0)), color-stop(51%, rgba(0,128,0,1)), color-stop(100%, rgba(0,255,0,1)));
+		background: -webkit-linear-gradient(45deg, rgb(0, 0, 0) 0%, rgba(0, 64, 0, 1) 25%, rgba(0, 128, 0, 1) 51%, rgba(0, 255, 0, 1) 100%);
+		background: -o-linear-gradient(45deg, rgba(0, 0, 0, 1) 0%, rgba(0, 64, 0, 1) 25%, rgba(0, 128, 0, 1) 51%, rgba(0, 255, 0, 1) 100%);
+		background: -ms-linear-gradient(45deg, rgb(0, 0, 0) 0%, rgba(0, 64, 0, 1) 25%, rgba(0, 128, 0, 1) 51%, rgba(0, 255, 0, 1) 100%);
+		background: linear-gradient(45deg, rgb(0, 0, 0) 0%, rgb(0, 64, 0) 25%, rgb(0, 128, 0) 51%, rgb(0, 255, 0) 100%));
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000 ', endColorstr='#00ff00 ', GradientType=1 );
+		height: 3px;
+	}
+	.range.blue::-webkit-slider-thumb {
+		border-color: rgb(0, 0, 255);
+	}
+	.range.blue::-webkit-slider-runnable-track {
+		-webkit-appearance: none;
+		background: rgb(133, 133, 133);
+		background: -moz-linear-gradient(45deg, rgb(0, 0, 0) 0%, rgba(0, 0, 64, 1) 25%, rgba(0, 0, 128, 1) 51%, rgba(0, 0, 255, 1) 100%);
+		background: -webkit-gradient(left bottom, right top, color-stop(0%, rgb(0, 0, 0)), color-stop(25%, rgb(0, 0, 64)), color-stop(51%, rgba(0,0,128,1)), color-stop(100%, rgba(0,0,255,1)));
+		background: -webkit-linear-gradient(45deg, rgb(0, 0, 0) 0%, rgba(0, 0, 64, 1) 25%, rgba(0, 0, 128, 1) 51%, rgba(0, 0, 255, 1) 100%);
+		background: -o-linear-gradient(45deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 64, 1) 25%, rgba(0, 0, 128, 1) 51%, rgba(0, 0, 255, 1) 100%);
+		background: -ms-linear-gradient(45deg, rgb(0, 0, 0) 0%, rgba(0, 0, 64, 1) 25%, rgba(0, 0, 128, 1) 51%, rgba(0, 0, 255, 1) 100%);
+		background: linear-gradient(45deg, rgb(0, 0, 0) 0%, rgb(0, 0, 64) 25%, rgb(0, 0, 128) 51%, rgb(0, 0, 255) 100%));
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000 ', endColorstr='#0000ff ', GradientType=1 );
+		height: 3px;
+	}
+	.range.ltpurple::-webkit-slider-thumb {
+		border-color: rgb(87,111,230);
+	}
+	
+	.range.purple::-webkit-slider-thumb {
+		border-color: rgb(152,68,183);
+	}
+	
+	.range.pink::-webkit-slider-thumb {
+		border-color: rgb(255,53,127);
+	}
+	.radio{
+		display: inline-flex;
+		align-items: center;
+		cursor: pointer;
+		margin-right: 10px;
+	}
+	.radio__input{
+		display:none;
+	}
+	.radio__radio{
+		width: 1.25em;
+		height: 1.25em;
+		border: 2px solid #d8e4e2;
+		border-radius: 50%;
+		margin-right: 10px;
+		box-sizing: border-box;
+		padding: 2px;
+	}
+	.radio__radio::after{
+		content: "";
+		width: 100%;
+		height: 100%;
+		display: block;
+		background: #73ff00;
+		border-radius: 50%;
+		transform: scale(0);
+		transition: transform 0.15s;
+	}
+	.radio__input:checked + .radio__radio::after {
+		transform: scale(1);
+
+	}
+	</style>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<title>Homework 2</title>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+//TODO: add necessary modifications to perform translation and scaling operations
+attribute vec4 vPosition;
+uniform float xrSlider;
+uniform float yrSlider;
+uniform float theta;
+uniform float posX;
+uniform float posY;
+uniform float scaleX;
+uniform float scaleY;
+
+void main()
+{
+	gl_Position.x = ((vPosition.x * xrSlider)*scaleX)+posX;
+	gl_Position.y = ((vPosition.y * yrSlider)*scaleY)+posY;
+	gl_Position.z = 0.0;
+	gl_Position.w = 1.0;
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+//TODO: add necessary modifications for color
+
+precision mediump float;
+uniform float redSlider;
+uniform float greenSlider;
+uniform float blueSlider;
+void main()
+{
+
+    gl_FragColor = vec4(redSlider,greenSlider,blueSlider,1.0);
+}
+</script>
+
+<script type="text/javascript" src="../Common/webgl-utils.js"></script>
+<script type="text/javascript" src="../Common/initShaders.js"></script>
+<script type="text/javascript" src="../Common/MV.js"></script>
+<script type="text/javascript" src="hw2.js"></script>
+</head>
+
+<body style="background-color:rgb(14, 14, 14); color: white;">
+
+<div>
+İsmet Emir Demir, 180315070
+</div>
+<table>
+	<td>
+	<canvas id="gl-canvas" width="650" height="650">
+		Oops ... your browser doesn't support the HTML5 canvas element
+	</canvas>
+	</td>
+	<td>	
+		<div> <strong>---- Ellipse Parameters ----</strong> </div><br>
+		<div> Resolution: </div><br>
+		<div>
+		<label for="theta1" class="radio">
+			<input type="radio" class="radio__input" name="theta" id="theta1" value="1" >
+			<div class="radio__radio"></div>
+			1
+		</label>
+		<label for="theta2" class="radio">
+			<input type="radio" class="radio__input" name="theta" id="theta2" value="10" >
+			<div class="radio__radio"></div>
+			10
+		</label>
+		<label for="theta3" class="radio">
+			<input type="radio" class="radio__input" name="theta" id="theta3" value="20" >
+			<div class="radio__radio"></div>
+			20
+		</label>
+		<label for="theta4" class="radio">
+			<input type="radio" class="radio__input" name="theta" id="theta4" value="30" >
+			<div class="radio__radio"></div>
+			30
+		</label>
+		<label for="theta5" class="radio">
+			<input type="radio" class="radio__input" name="theta" id="theta5" value="60" >
+			<div class="radio__radio"></div>
+			60
+		</label>
+		</div> 
+		<br>
+		<div>
+		x-radius: 0.1 <input class="range ltpurple" id="xrSlider" type="range"
+			min="0.1" max="0.5" step="0.05" value="0.2" /> 0.5
+		</div>
+		<br>
+		<div>
+		y-radius: 0.1 <input class="range purple" id="yrSlider" type="range"
+			min="0.1" max="0.5" step="0.05" value="0.1" /> 0.5
+		</div>
+
+		<br>
+
+		<div> <strong>---- Color ----</strong> </div><br>
+		<div>
+		R: 0 <input class="range red" id="redSlider" type="range"
+			min="0" max="1" step="0.05" value="1" /> 1
+		</div> 
+		<br>
+		<div>
+		G: 0 <input class="range green" id="greenSlider" type="range"
+			min="0" max="1" step="0.05" value="0" /> 1
+		</div> 
+		<br>
+		<div>
+		B: 0 <input class="range blue" id="blueSlider" type="range"
+			min="0" max="1" step="0.05" value="0" /> 1
+		</div>
+		<br>
+
+		<div> <strong>---- Transformations ----</strong> </div><br>			
+
+		<div>Position</div> 
+		<div>X: -1 <input class="range pink" id="posX" type="range"
+			min="-1" max="1" step="0.05" value="0" /> 1</div>
+		<br> 
+		<div>Y: -1 <input class="range ltpurple" id="posY" type="range"
+			min="-1" max="1" step="0.05" value="0" /> 1</div><br> 
+
+		<div>Scale</div> 
+		<div>X: 0 <input class="range pink" id="scaleX" type="range"
+			min="0" max="2" step="0.05" value="1" /> 2</div> 
+		<br>
+		<div>Y: 0 <input class="range ltpurple" id="scaleY" type="range"
+			min="0" max="2" step="0.05" value="1" /> 2</div><br>
+
+		<br>
+	</td>
+
+</table>
+<div>
+</body>
+</html>
