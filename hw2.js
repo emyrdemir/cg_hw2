@@ -60,23 +60,14 @@ window.onload = function init()
     gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
     gl.enableVertexAttribArray( vPosition );
 
-    gl.uniform1f( xrSliderLoc, xrSlider );
     xrSliderLoc = gl.getUniformLocation( program, "xrSlider" );
-    gl.uniform1f( yrSliderLoc, yrSlider );
     yrSliderLoc = gl.getUniformLocation( program, "yrSlider" );
-    gl.uniform1f( redSliderLoc, redSlider );
     redSliderLoc = gl.getUniformLocation( program, "redSlider" );
-    gl.uniform1f( greenSliderLoc, greenSlider );
     greenSliderLoc = gl.getUniformLocation( program, "greenSlider" );
-    gl.uniform1f( blueSliderLoc, blueSlider );
     blueSliderLoc = gl.getUniformLocation( program, "blueSlider" );
-    gl.uniform1f( posXLoc, posX );
     posXLoc = gl.getUniformLocation( program, "posX" );
-    gl.uniform1f( posYLoc, posY );
     posYLoc = gl.getUniformLocation( program, "posY" );
-    gl.uniform1f( scaleXLoc, scaleX );
     scaleXLoc = gl.getUniformLocation( program, "scaleX" );
-    gl.uniform1f( scaleYLoc, scaleY );
     scaleYLoc = gl.getUniformLocation( program, "scaleY" );
 
 
@@ -155,7 +146,6 @@ window.onload = function init()
 function render() {
 	//TODO: send necessary variables to shader, draw call, swap buffers
     gl.clear( gl.COLOR_BUFFER_BIT );
-	gl.drawArrays(gl.TRIANGLE_FAN, 0, vertices.length);
     gl.uniform1f( xrSliderLoc, xrSlider )
     gl.uniform1f( yrSliderLoc, yrSlider )
     gl.uniform1f( redSliderLoc, redSlider );
@@ -164,6 +154,7 @@ function render() {
     gl.uniform1f( posXLoc, posX );
     gl.uniform1f( posYLoc, posY );
     gl.uniform1f( scaleXLoc, scaleX );
-    gl.uniform1f( scaleYLoc, scaleY );
+    gl.uniform1f( scaleYLoc, scaleY );	
+    gl.drawArrays(gl.TRIANGLE_FAN, 0, vertices.length);
     window.requestAnimFrame(render);
 }
